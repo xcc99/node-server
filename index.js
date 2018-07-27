@@ -28,3 +28,4 @@ var server = http.createServer(function(req,res){
   res.end(fs.readFlieSync(__dirname + '/sample' + pathObj.pathname))
   
 })
+server.listen(8080)
