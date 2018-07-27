@@ -4,28 +4,30 @@ var url = require('url')
 
 var server = http.createServer(function(req,res){
   var pathObj = url.parse(req.url,true)
-  switch(pathObj.parsename){
+  switch(pathObj.pathname){
     case '/getWeather' :
     var ret
     if(pathObj.query.city === 'beijing'){
-      ret{
+      ret = {
         city: 'beijing',
         weather: '阴天'
       }
     }else{
-      ret{
+      ret = {
         city: pathObj.query.city,
         weather: '未知'
       }
     }
-    res.end(JOSON.strinfify(ret))
+    res.end(JSON.stringify(ret))
     break;
     case '/introduce':
-    res.end(fs.readFlieSync(__dirname + '/README.md'))
+    res.setHeader('content-type','text/html;charset=utf-8')
+    res.end(fs.readFileSync(__dirname + '/README.md'))
+    break;
+    default: 
+    res.end(fs.readFileSync(__dirname + '/sample' + pathObj.pathname))
   }
-  break;
-  default:
-  res.end(fs.readFlieSync(__dirname + '/sample' + pathObj.pathname))
-  
+    
+
 })
-server.listen(8080)
+server.listen(9000)
