@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>weather</title>
+</head>
+<body>
+	<script>
+		var xhr = new XMLHttpRequest()
+		xhr.open('GET','/getWeather?city=beijing',true)
+		xhr.send()
+		xhr.onload = function(){
+			console.log(xhr.responseText)
+		}
+	</script>
+</body>
+</html>
