@@ -5,10 +5,9 @@
 	<title>weather</title>
 </head>
 <body>
-	111
 	<script>
 		var xhr = new XMLHttpRequest()
-		xhr.open('GET','/introduce',true)
+		xhr.open('GET','/getWeather?city=beijing',true)
 		xhr.send()
 		xhr.onload = function(){
 			console.log(JSON.parse(xhr.responseText))
