@@ -21,7 +21,6 @@ var server = http.createServer(function(req,res){
     res.end(JSON.stringify(ret))
     break;
     case '/introduce':
-    res.setHeader('content-type','text/html;charset=utf-8')
     res.end(fs.readFileSync(__dirname + '/README.md'))
     break;
     default: 
